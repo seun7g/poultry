@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="about-us-section mb-5">
+        {% for about in about_us %}
+            <h1 class="display-4">{{ about.title }}</h1>
+            <div class="lead">
+                {{ about.description|linebreaks }}
+            </div>
+            <hr class="my-4">
+        {% empty %}
+            <h1 class="display-4">Welcome to Our Site</h1>
+            <p class="lead">We are currently setting up our content. Please check back soon!</p>
+        {% endfor %}
+    </div>
+
+    <div class="row g-4">
+        <!-- Placeholder for more features or poultry items if needed -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-check-circle text-primary me-2"></i> Quality Products</h5>
+                    <p class="card-text">We provide the best poultry products in the region, ensuring health and safety standards are always met.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-truck text-primary me-2"></i> Fast Delivery</h5>
+                    <p class="card-text">Our logistics team ensures that your orders are delivered fresh and on time, every time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
