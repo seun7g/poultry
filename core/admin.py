@@ -1,5 +1,13 @@
 from django.contrib import admin
-from .models import ContactInfo, AboutUs, SiteSettings, NavigationItem
+from .models import ContactInfo, AboutUs, SiteSettings, NavigationItem, UserProfile, Project
+
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at')
+
+@admin.register(UserProfile)
+class UserProfileAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email')
 
 @admin.register(ContactInfo)
 class ContactInfoAdmin(admin.ModelAdmin):

@@ -14,70 +14,95 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="/">
-                {% if site_settings.logo %}
-                    <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.site_name }}" height="40">
-                {% else %}
-                    {{ site_settings.site_name }}
-                {% endif %}
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+    <!-- Navigation Header -->
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container-fluid px-4">
+            <!-- Sidebar Toggle Button (Visible on all screens as requested, but sidebar logic handles visibility) -->
+            <button class="btn btn-outline-light me-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarAside">
+                <i class="fas fa-bars"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+
+            <a class="navbar-brand fw-bold" href="/">
+                {% if site_settings.logo %}
+                    <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.site_name }}" height="40" class="me-2">
+                {% endif %}
+                {{ site_settings.site_name|default:"Poultry Brand" }}
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="ms-auto d-none d-lg-block">
+                <ul class="navbar-nav">
                     {% for item in nav_items %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ item.url }}">{{ item.title }}</a>
+                            <a class="nav-link px-3" href="{{ item.url }}">{{ item.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
             </div>
+
+            <!-- Mobile Menu Toggler (Optional, if you want a separate mobile nav) -->
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavMobile">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
-    </nav>
+    </header>
+
+    <!-- Mobile Navigation (Collapsible) -->
+    <div class="collapse d-lg-none bg-dark" id="navbarNavMobile">
+        <ul class="navbar-nav p-3">
+            {% for item in nav_items %}
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ item.url }}">{{ item.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Aside Sidebar (Offcanvas) -->
+    <div class="offcanvas offcanvas-start bg-dark text-white" tabindex="-1" id="sidebarAside" aria-labelledby="sidebarAsideLabel">
+        <div class="offcanvas-header border-bottom border-secondary">
+            <h5 class="offcanvas-title" id="sidebarAsideLabel">User Profile</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="text-center mb-4">
+                {% if user_profile.profile_pic %}
+                    <img src="{{ user_profile.profile_pic.url }}" alt="Profile Picture" class="rounded-circle img-thumbnail mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+                {% else %}
+                    <div class="bg-secondary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 120px; height: 120px;">
+                        <i class="fas fa-user fa-4x"></i>
+                    </div>
+                {% endif %}
+                <h4 class="mb-0">{{ user_profile.name|default:"Your Name" }}</h4>
+                <p class="text-secondary small">{{ user_profile.bio|default:"No bio available." }}</p>
+            </div>
+
+            <div class="user-details mt-4">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-envelope text-primary me-3"></i>
+                    <span>{{ user_profile.email|default:"email@example.com" }}</span>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-phone text-primary me-3"></i>
+                    <span>{{ user_profile.phone|default:"+1234567890" }}</span>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-map-marker-alt text-primary me-3"></i>
+                    <span>{{ user_profile.address|default:"Your Address" }}</span>
+                </div>
+            </div>
+
+            <hr class="border-secondary">
+            
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main class="container my-5">
-        <div class="row">
-            <div class="col-lg-8">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
                 {% block content %}
                 {% endblock %}
-            </div>
-            
-            <!-- Sidebar -->
-            <div class="col-lg-4">
-                <div class="card mb-4 shadow-sm">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Contact Info</h5>
-                    </div>
-                    <div class="card-body">
-                        {% for info in contact_info %}
-                            <p><strong><i class="fas fa-user me-2"></i></strong> {{ info.name }}</p>
-                            <p><strong><i class="fas fa-envelope me-2"></i></strong> {{ info.email }}</p>
-                            <p><strong><i class="fas fa-phone me-2"></i></strong> {{ info.phone }}</p>
-                            <p><strong><i class="fas fa-map-marker-alt me-2"></i></strong> {{ info.address }}</p>
-                            <hr>
-                        {% empty %}
-                            <p>No contact info available.</p>
-                        {% endfor %}
-                    </div>
-                </div>
-
-                <div class="card mb-4 shadow-sm text-center">
-                    <div class="card-body">
-                        <h5 class="card-title">Chat with Us</h5>
-                        {% if site_settings.whatsapp_link %}
-                            <a href="{{ site_settings.whatsapp_link }}" class="btn btn-success w-100" target="_blank">
-                                <i class="fab fa-whatsapp me-2"></i> WhatsApp
-                            </a>
-                        {% else %}
-                            <button class="btn btn-success w-100" disabled>WhatsApp Unavailable</button>
-                        {% endif %}
-                    </div>
-                </div>
             </div>
         </div>
     </main>

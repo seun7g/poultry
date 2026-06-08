@@ -22,6 +22,20 @@ class AboutUs(models.Model):
     class Meta:
         verbose_name_plural = "About Us"
 
+class UserProfile(models.Model):
+    name = models.CharField(max_length=100)
+    profile_pic = models.ImageField(upload_to='profile_pics/')
+    email = models.EmailField()
+    phone = models.CharField(max_length=20)
+    address = models.CharField(max_length=255)
+    bio = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "User Profile"
+
 class SiteSettings(models.Model):
     site_name = models.CharField(max_length=100)
     logo = models.ImageField(upload_to='logos/')
@@ -44,3 +58,13 @@ class NavigationItem(models.Model):
 
     class Meta:
         ordering = ['order']
+
+class Project(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    image = models.ImageField(upload_to='projects/', blank=True, null=True)
+    link = models.URLField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
