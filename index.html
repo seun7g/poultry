@@ -2,16 +2,18 @@
 
 {% block content %}
     <div class="about-us-section mb-5">
-        {% for about in about_us %}
-            <h1 class="display-4">{{ about.title }}</h1>
-            <div class="lead">
-                {{ about.description|linebreaks }}
-            </div>
-            <hr class="my-4">
-        {% empty %}
-            <h1 class="display-4">Welcome to Our Site</h1>
-            <p class="lead">We are currently setting up our content. Please check back soon!</p>
-        {% endfor %}
+        {% with about=about_us.first %}
+            {% if about %}
+                <h1 class="display-4">{{ about.title }}</h1>
+                <div class="lead">
+                    {{ about.description|linebreaks }}
+                </div>
+                <hr class="my-4">
+            {% else %}
+                <h1 class="display-4">Welcome to Our Site</h1>
+                <p class="lead">We are currently setting up our content. Please check back soon!</p>
+            {% endif %}
+        {% endwith %}
     </div>
 
     <div class="row g-4">
