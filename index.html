@@ -1,6 +1,115 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <!-- Skills Matrix Section -->
+    <div class="skills-matrix-section mb-5">
+        <h2 class="text-center mb-4 fw-bold">Skills Matrix</h2>
+        <div class="row g-4">
+            <!-- Web Designer -->
+            <div class="col-lg-6">
+                <div class="skill-card">
+                    <div class="skill-icon web-designer-gradient">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="mt-3 fw-bold">Web Designer</h3>
+                    <p class="text-muted mb-4">Creating beautiful, responsive, and user-friendly web interfaces</p>
+                    
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="fw-medium">UI/UX Design</span>
+                            <span class="fw-medium">95%</span>
+                        </div>
+                        <div class="progress skill-progress">
+                            <div class="progress-bar" style="width: 95%; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="fw-medium">HTML/CSS</span>
+                            <span class="fw-medium">98%</span>
+                        </div>
+                        <div class="progress skill-progress">
+                            <div class="progress-bar" style="width: 98%; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="fw-medium">Responsive Design</span>
+                            <span class="fw-medium">92%</span>
+                        </div>
+                        <div class="progress skill-progress">
+                            <div class="progress-bar" style="width: 92%; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="fw-medium">Figma/Sketch</span>
+                            <span class="fw-medium">90%</span>
+                        </div>
+                        <div class="progress skill-progress">
+                            <div class="progress-bar" style="width: 90%; background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Designer -->
+            <div class="col-lg-6">
+                <div class="skill-card">
+                    <div class="skill-icon product-designer-gradient">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="mt-3 fw-bold">Product Designer</h3>
+                    <p class="text-muted mb-4">Transforming ideas into elegant and functional digital products</p>
+                    
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="fw-medium">Product Strategy</span>
+                            <span class="fw-medium">90%</span>
+                        </div>
+                        <div class="progress skill-progress">
+                            <div class="progress-bar" style="width: 90%; background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="fw-medium">User Research</span>
+                            <span class="fw-medium">88%</span>
+                        </div>
+                        <div class="progress skill-progress">
+                            <div class="progress-bar" style="width: 88%; background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="fw-medium">Prototyping</span>
+                            <span class="fw-medium">94%</span>
+                        </div>
+                        <div class="progress skill-progress">
+                            <div class="progress-bar" style="width: 94%; background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-item">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="fw-medium">Design Systems</span>
+                            <span class="fw-medium">85%</span>
+                        </div>
+                        <div class="progress skill-progress">
+                            <div class="progress-bar" style="width: 85%; background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
     <div class="about-us-section mb-5">
         {% with about=about_us.first %}
             {% if about %}
@@ -10,29 +119,9 @@
                 </div>
                 <hr class="my-4">
             {% else %}
-                <h1 class="display-4">Welcome to Our Site</h1>
-                <p class="lead">We are currently setting up our content. Please check back soon!</p>
+                <h1 class="display-4">Welcome to My Portfolio</h1>
+                <p class="lead">Creative web and product designer passionate about crafting beautiful digital experiences.</p>
             {% endif %}
         {% endwith %}
-    </div>
-
-    <div class="row g-4">
-        <!-- Placeholder for more features or poultry items if needed -->
-        <div class="col-md-6">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-check-circle text-primary me-2"></i> Quality Products</h5>
-                    <p class="card-text">We provide the best poultry products in the region, ensuring health and safety standards are always met.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-truck text-primary me-2"></i> Fast Delivery</h5>
-                    <p class="card-text">Our logistics team ensures that your orders are delivered fresh and on time, every time.</p>
-                </div>
-            </div>
-        </div>
     </div>
 {% endblock %}

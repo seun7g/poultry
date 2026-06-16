@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}About Us - {{ site_settings.site_name }}{% endblock %}
+{% block title %}About Me - {{ site_settings.site_name }}{% endblock %}
 
 {% block content %}
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <h1 class="display-4 mb-4 border-bottom pb-2">About Our Poultry</h1>
+            <h1 class="display-4 mb-4 border-bottom pb-2">About Me</h1>
             {% with about=about_us.first %}
                 {% if about %}
                     <div class="mb-5">
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                 {% else %}
-                    <p class="lead">Information about us is coming soon!</p>
+                    <p class="lead">Hi! I'm a passionate creative designer with expertise in web design and product design. I love crafting beautiful, functional digital experiences that users love.</p>
                 {% endif %}
             {% endwith %}
         </div>

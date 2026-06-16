@@ -1,6 +1,6 @@
-// Basic scripts for the poultry project
+// Basic scripts for My Portfolio
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Poultry project initialized');
+    console.log('My Portfolio initialized');
     
     // Smooth scroll for internal links if any
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

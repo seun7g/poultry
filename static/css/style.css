@@ -28,9 +28,12 @@ body {
     width: 300px;
     height: 100vh;
     overflow-y: auto;
-    border-right: 1px solid #333;
+    border-right: 1px solid #e0e0e0;
+    background: #ffffff;
+    color: #1a1a1a;
     z-index: 1000;
     padding-top: 76px; /* To account for header height */
+    box-shadow: 4px 0 20px rgba(0,0,0,0.05);
 }
 
 /* Main Content Adjustment for Desktop Sidebar */
@@ -42,17 +45,27 @@ body {
 
 /* Sidebar behavior */
 .offcanvas {
-    border-right: 1px solid #333;
+    border-right: 1px solid #e0e0e0;
+    background: #ffffff;
     width: 300px !important;
 }
 
 .offcanvas-header {
-    background-color: #111;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .img-thumbnail {
-    background-color: #222;
-    border-color: #444;
+    background-color: #f0f0f0;
+    border-color: #e0e0e0;
+}
+
+.sidebar-text-secondary {
+    color: #6b7280;
+}
+
+.sidebar-divider {
+    border-color: #e0e0e0;
 }
 
 .navbar-brand {
@@ -96,4 +109,70 @@ footer {
     .display-4 {
         font-size: 2.5rem;
     }
+}
+
+/* Skills Matrix Styles */
+.skills-matrix-section {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.skill-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+.skill-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 2rem;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.web-designer-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.product-designer-gradient {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.skill-progress {
+    height: 10px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.skill-progress .progress-bar {
+    border-radius: 10px;
+    transition: width 1.5s ease-in-out;
+}
+
+.skills-matrix-section h2 {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
