@@ -176,3 +176,21 @@ footer {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+/* Custom Header Styling */
+.custom-header {
+    background-color: #e9ecef;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.custom-header .navbar-brand {
+    color: #212529;
+}
+
+.custom-header .nav-link {
+    color: #495057;
+}
+
+.custom-header .nav-link:hover {
+    color: #667eea;
+}

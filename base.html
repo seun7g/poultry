@@ -15,14 +15,14 @@
 <body>
 
     <!-- Navigation Header -->
-    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <header class="navbar navbar-expand-lg sticky-top shadow-sm custom-header">
         <div class="container-fluid px-4">
             <!-- Sidebar Toggle Button (Visible on mobile only) -->
-            <button class="btn btn-outline-light me-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarAside">
+            <button class="btn btn-outline-secondary me-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarAside">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <a class="navbar-brand fw-bold" href="/">
+            <a class="navbar-brand fw-bold text-dark" href="/">
                 {% if site_settings.logo %}
                     <img src="{{ site_settings.logo.url }}" alt="{{ site_settings.site_name }}" height="40" class="me-2">
                 {% endif %}
@@ -34,25 +34,25 @@
                 <ul class="navbar-nav">
                     {% for item in nav_items %}
                         <li class="nav-item">
-                            <a class="nav-link px-3" href="{{ item.url }}">{{ item.title }}</a>
+                            <a class="nav-link px-3 text-dark" href="{{ item.url }}">{{ item.title }}</a>
                         </li>
                     {% endfor %}
                 </ul>
             </div>
 
             <!-- Mobile Menu Toggler (Optional, if you want a separate mobile nav) -->
-            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavMobile">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavMobile">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
     </header>
 
     <!-- Mobile Navigation (Collapsible) -->
-    <div class="collapse d-lg-none bg-dark" id="navbarNavMobile">
+    <div class="collapse d-lg-none custom-header" id="navbarNavMobile">
         <ul class="navbar-nav p-3">
             {% for item in nav_items %}
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="{{ item.url }}">{{ item.title }}</a>
+                    <a class="nav-link text-dark" href="{{ item.url }}">{{ item.title }}</a>
                 </li>
             {% endfor %}
         </ul>
